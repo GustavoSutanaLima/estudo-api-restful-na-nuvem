@@ -2,16 +2,30 @@ package edu.gustavo.dev_week_publicando_api_restful_na_nuvem.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity(name = "tb_account")
 public class Account {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true) //Indica que só pode haver um número de conta;
     private String number;
     private String agency;
+
+    /*
+     * O atributo de Column scale = 13 indica que a parte inteira tem 13 dígitos
+     * Já atributo de Column precision = 2, indica que a precisão numérida desse atributo é 2;
+     */
+    @Column(scale = 13, precision = 2) 
     private BigDecimal balance;
+
+    @Column(scale = 13, precision = 2)
     private BigDecimal limit;
     /* Sim, a classe BigDecimal em Java é altamente recomendada para aplicações que envolvem valores monetários. 
      * Aqui estão os principais motivos:
@@ -22,5 +36,37 @@ public class Account {
      * Confiabilidade: É amplamente utilizada em contextos financeiros e científicos onde a exatidão é crucial.
      * Usar BigDecimal ajuda a garantir que os cálculos sejam precisos e confiáveis.
     */
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getNumber() {
+        return number;
+    }
+    public void setNumber(String number) {
+        this.number = number;
+    }
+    public String getAgency() {
+        return agency;
+    }
+    public void setAgency(String agency) {
+        this.agency = agency;
+    }
+    public BigDecimal getBalance() {
+        return balance;
+    }
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+    public BigDecimal getLimit() {
+        return limit;
+    }
+    public void setLimit(BigDecimal limit) {
+        this.limit = limit;
+    }
+    
 
 }
