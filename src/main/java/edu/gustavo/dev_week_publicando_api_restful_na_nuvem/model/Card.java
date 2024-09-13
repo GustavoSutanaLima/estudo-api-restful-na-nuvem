@@ -18,7 +18,7 @@ public class Card {
     @Column(unique = true) //Indica que só pode haver um número de cartão;
     private String number;
 
-    @Column(scale = 13, precision = 2)
+    @Column(name = "addtional_limit", scale = 13, precision = 2)
     private BigDecimal limit;
 
     public int getId() {

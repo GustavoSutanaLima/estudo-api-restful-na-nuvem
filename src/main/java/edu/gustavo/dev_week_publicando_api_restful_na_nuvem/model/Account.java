@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 
 @Entity(name = "tb_account")
 public class Account {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,7 +26,10 @@ public class Account {
     @Column(scale = 13, precision = 2) 
     private BigDecimal balance;
 
-    @Column(scale = 13, precision = 2)
+     //Um detalhe, sobre o nome do objeto limit, em alguns bancos de dados
+     //a palavra limit pode ser uma key-word, por isso, usou-se o atributo name
+     //da anotação @Column, para definir um nome customizado para a coluna de limite;
+    @Column(name = "addtional_limit", scale = 13, precision = 2)
     private BigDecimal limit;
     /* Sim, a classe BigDecimal em Java é altamente recomendada para aplicações que envolvem valores monetários. 
      * Aqui estão os principais motivos:
