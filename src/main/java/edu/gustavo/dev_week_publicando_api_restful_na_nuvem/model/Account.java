@@ -20,16 +20,22 @@ public class Account {
     private String agency;
 
     /*
-     * O atributo de Column scale = 13 indica que a parte inteira tem 13 dígitos
-     * Já atributo de Column precision = 2, indica que a precisão numérida desse atributo é 2;
+     * O atributo de Column precision = 13 indica a quantidade de dígitos
+     * Já atributo de Column precision = 2, indica que a precisão decimal dessa scale é 2;
+     * daí teremos um valor numérico com a seguinte característica:
+     * xxxxxxxxxxx.xx
+     * ^
+     * |
+     * *
+     * 13 dígitos sento, destes, 2 para precisão decimal
      */
-    @Column(scale = 13, precision = 2) 
+    @Column(precision = 13, scale = 2) 
     private BigDecimal balance;
 
      //Um detalhe, sobre o nome do objeto limit, em alguns bancos de dados
      //a palavra limit pode ser uma key-word, por isso, usou-se o atributo name
      //da anotação @Column, para definir um nome customizado para a coluna de limite;
-    @Column(name = "addtional_limit", scale = 13, precision = 2)
+     @Column(name = "additional_limit", precision = 13, scale = 2)
     private BigDecimal limit;
     /* Sim, a classe BigDecimal em Java é altamente recomendada para aplicações que envolvem valores monetários. 
      * Aqui estão os principais motivos:
