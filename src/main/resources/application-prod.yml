@@ -1,0 +1,12 @@
+#Arquivo de Configuração de produção
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres.railway.internal:22356/railway # Altere para a URL do seu banco de dados no Railway
+    username: postgres        # Altere para o nome de usuário do seu banco de dados no Railway
+    password: oKRJGWqkvgXeeWfUsaSqOuLznNkvEukt          # Altere para a senha do seu banco de dados no Railway
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

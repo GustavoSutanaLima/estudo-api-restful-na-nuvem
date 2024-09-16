@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.NoSuchElementException;
-import com.fasterxml.jackson.databind.deser.std.ThrowableDeserializer;
 
 /*
  * Anotar uma classe com @RestControllerAdvice em um projeto Spring Boot tem o efeito de CENTRALIZAR
