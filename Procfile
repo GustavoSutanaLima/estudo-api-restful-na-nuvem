@@ -1,0 +1,1 @@
+web: java -jar target/dev-week-publicando-api-restful-na-nuvem-0.0.1-SNAPSHOT.jar

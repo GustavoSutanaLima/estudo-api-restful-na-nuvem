@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignorar arquivos de configuração específicos
+src/main/resources/application-prod2.yml
