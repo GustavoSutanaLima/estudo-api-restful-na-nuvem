@@ -1,0 +1,16 @@
+{
+    "build": {
+      "builder": "nixpacks",
+      "buildCommand": "mvn clean package"
+    },
+    "deploy": {
+      "startCommand": "web: java -jar target/dev-week-publicando-api-restful-na-nuvem-0.0.1-SNAPSHOT.jar"
+    },
+    "env": {
+                "PGDATABASE": "railway",
+                "PGHOST": "autorack.proxy.rlwy.net",
+                "PGPASSWORD": "PaxjfMvnstqVZjmUUaFmOGEfGnnkdJmP",
+                "PGPORT": "47474",
+                "PGUSER": "postgres"
+        }
+  }
