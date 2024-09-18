@@ -9,5 +9,6 @@ public interface UserService {
 
     public User createUser(User userToCreate);
 
+    public User updateUser(Integer IdUserToUpdate, User userToUpdate);
     
 }

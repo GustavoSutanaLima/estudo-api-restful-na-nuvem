@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,4 +61,16 @@ public class UserController {
             .toUri();
         return ResponseEntity.created(location).body(userCreated);
     }
+    
+    @PutMapping("/{id}") //ATENÇÃO: É PRECISO QUE O ATRIBUTO PASSADO NO @PutMapping seja identico
+                         //ao ao argumento passado no méotodo abaixo anotado com o @PathVariable
+                         //Neste caso, é preciso que o id do argumento abaixo seja igual ao passado no
+                         //PutMapping: /{id}. Se nao for, o Swagger não entende que precisa de um
+                         //parâmetro id para dar update no usuário;
+    public ResponseEntity<User> usarUpdateByID(@PathVariable Integer id, @RequestBody User userUpdate){
+        userService.updateUser(id, userUpdate);
+        return ResponseEntity.ok(userUpdate);
+    }
+    
+
 }
