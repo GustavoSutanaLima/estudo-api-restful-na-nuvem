@@ -1,9 +1,10 @@
 package edu.gustavo.dev_week_publicando_api_restful_na_nuvem.controller;
 
 import java.net.URI;
-
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,11 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @GetMapping
+    public ResponseEntity<Iterable<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.listAllUsers());
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Integer id) {
@@ -67,10 +73,15 @@ public class UserController {
                          //Neste caso, é preciso que o id do argumento abaixo seja igual ao passado no
                          //PutMapping: /{id}. Se nao for, o Swagger não entende que precisa de um
                          //parâmetro id para dar update no usuário;
-    public ResponseEntity<User> usarUpdateByID(@PathVariable Integer id, @RequestBody User userUpdate){
+    public ResponseEntity<User> userUpdateById(@PathVariable Integer id, @RequestBody User userUpdate){
         userService.updateUser(id, userUpdate);
         return ResponseEntity.ok(userUpdate);
     }
-    
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> userDeleteById(@PathVariable Integer id){
+        userService.deleteUser(id);
+        return ResponseEntity.ok("Usuário de " + id + " foi deletado com sucesso!");
+    }
+    
 }

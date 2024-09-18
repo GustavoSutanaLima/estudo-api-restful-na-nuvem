@@ -61,4 +61,25 @@ public class UserServiceImplmentacao implements UserService{
         }
     }
 
+    @Override
+    public void deleteUser(Integer id) {
+        Optional<User> deletedUser = userRepo.findById(id);
+        if (deletedUser.isPresent()){
+            userRepo.delete(deletedUser.get());
+        }
+        else{
+            throw new NoSuchElementException(); 
+        }
+       
+    }
+
+    @Override
+    public Iterable<User> listAllUsers() {
+        if(userRepo.count()>0) {
+            return userRepo.findAll();
+        }
+        else {
+            throw new NoSuchElementException();
+        }
+    }
 }

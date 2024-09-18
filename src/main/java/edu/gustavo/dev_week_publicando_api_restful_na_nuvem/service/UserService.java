@@ -11,4 +11,7 @@ public interface UserService {
 
     public User updateUser(Integer IdUserToUpdate, User userToUpdate);
     
+    public void deleteUser(Integer id);
+
+    public Iterable<User> listAllUsers();
 }

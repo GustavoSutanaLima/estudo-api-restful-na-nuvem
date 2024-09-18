@@ -29,4 +29,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * Ao criar um metodo boleano aqui dentro, o próprio Spring boot consegue fazer uma inferência
      * ao atributo Account dentro de usário.
      */
+
+    
 }
