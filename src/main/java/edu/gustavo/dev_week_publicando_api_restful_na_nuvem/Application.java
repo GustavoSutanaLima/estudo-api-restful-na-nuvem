@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.servers.Server;
 
 //Correção de erro CORS
-@OpenAPIDefinition(servers = { @Server(url = "/", description = "URL Padrão de Servidor")})
+@OpenAPIDefinition(servers = { @Server(url = "/", description = "Default Server URL")})
 @SpringBootApplication
 public class Application {
 
